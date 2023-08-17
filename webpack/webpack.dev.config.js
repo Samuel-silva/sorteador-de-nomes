@@ -4,6 +4,17 @@ const path = require('path')
 
 module.exports = merge(common, {
   mode: 'development',
+  output: {
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  },
   devServer: {
     port: 9000,
     static: {
@@ -14,7 +25,8 @@ module.exports = merge(common, {
       writeToDisk: true,
     },
     client: {
-      overlay: true
+      overlay: true,
+      logging: 'error'
     },
   }
 })
