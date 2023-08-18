@@ -30,12 +30,9 @@ module.exports = merge(common, {
   devServer: {
     port: 9000,
     static: {
-      directory: path.resolve(__dirname, '../dist'),
+      directory: path.resolve(__dirname, '../src'),
     },
-    devMiddleware: {
-      index: 'index.html',
-      writeToDisk: true,
-    },
+    compress: true,
     client: {
       overlay: true,
       logging: 'error'
