@@ -5,7 +5,7 @@ Este projeto visa facilitar o início de novos projetos ao configurar o Webpack 
 
 ### Instalação de Pacotes
 
-Após baixar o projeto, é necessário instalar os pacotes. Execute o seguinte comando:
+Após baixar o projeto, é necessário instalar os pacotes. No diretório raiz do projeto, execute o seguinte comando:
 
 ```javascript
 npm install
@@ -30,3 +30,10 @@ Para gerar os arquivos de produção, basta executar:
 npm run build
 ```
 Todos o contéudo do site será gerado na pasta `dist/`, com os arquivos minificados e imagens comprimidas, prontos para serem enviados ao servidor. 😀
+
+### Requisitos
+
+Para executar este projeto, você precisará ter instalados:
+
+- Node.js
+- npm
