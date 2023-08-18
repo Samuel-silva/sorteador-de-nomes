@@ -5,3 +5,11 @@ body {
 * {
     box-sizing: border-box;
 }
+
+.css-image {
+    background: url("../images/css.png") center center no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+}
