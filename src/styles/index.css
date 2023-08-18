@@ -1,4 +1,6 @@
 body {
+    font-family: 'Open Sans', sans-serif;
+    min-width: 320px;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -6,10 +8,58 @@ body {
     box-sizing: border-box;
 }
 
-.css-image {
+header {
+    align-items: center;
+    display: flex;
+    min-height: 100vh;
+}
+
+.webpack-logo__img {
+    display: block;
+    margin: auto;
+    max-width: 180px;
+}
+.title {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 18px;
+    justify-content: center;
+    line-height: 2;
+}
+.title__css-image {
     background: url("../images/css.png") center center no-repeat;
     background-size: contain;
     display: inline-block;
     height: 40px;
     width: 40px;
+}
+.title__html-image {
+    display: flex;
+    align-items: center;
+}
+.title__html-image img {
+    max-width: 40px;
+}
+
+.wrapper {
+    max-width: 1200px;
+    padding: 0 12px;
+    margin: auto;
+}
+
+@media only screen and (min-width: 980px) {
+    .webpack-logo__img {
+        max-width: 300px;
+    }
+    .title {
+        font-size: 25px;
+    }
+    .title__css-image {
+        height: 50px;
+        width: 50px;
+    }
+    .title__html-image img {
+        max-width: 50px;
+    }
 }
