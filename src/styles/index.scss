@@ -1,5 +1,5 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-family;
     min-width: 320px;
     -webkit-font-smoothing: antialiased;
 }
@@ -18,6 +18,10 @@ header {
     display: block;
     margin: auto;
     max-width: 180px;
+
+    @media only screen and (min-width: 980px) {
+        max-width: 300px;
+    }
 }
 .title {
     align-items: center;
@@ -26,41 +30,39 @@ header {
     font-size: 18px;
     justify-content: center;
     line-height: 2;
+
+    @media only screen and (min-width: 980px) {
+        font-size: 25px;
+    }
 }
-.title__css-image {
+.title__sass-image {
     background: url("../images/sass.png") center center no-repeat;
     background-size: contain;
     display: inline-block;
     height: 40px;
     margin: 0 0 0 5px;
     width: 40px;
+
+    @media only screen and (min-width: 980px) {
+        height: 50px;
+        width: 50px;
+    }
 }
 .title__html-image {
     display: flex;
     align-items: center;
-}
-.title__html-image img {
-    max-width: 40px;
+
+    img {
+        max-width: 40px;
+
+        @media only screen and (min-width: 980px) {
+            max-width: 50px;
+        }
+    }
 }
 
 .wrapper {
     max-width: 1200px;
     padding: 0 12px;
     margin: auto;
-}
-
-@media only screen and (min-width: 980px) {
-    .webpack-logo__img {
-        max-width: 300px;
-    }
-    .title {
-        font-size: 25px;
-    }
-    .title__css-image {
-        height: 50px;
-        width: 50px;
-    }
-    .title__html-image img {
-        max-width: 50px;
-    }
 }

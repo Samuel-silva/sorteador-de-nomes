@@ -1,5 +1,5 @@
-import 'normalize.css/normalize.css';
-import '../styles/index.css';
+// import 'normalize.css/normalize.css';
+import '../styles/app.scss';
 import HtmlIcon from '../images/html.png';
 
 const htmlImg = document.querySelector('.title__html-image');
