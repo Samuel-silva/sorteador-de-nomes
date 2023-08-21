@@ -1,6 +1,6 @@
-# Webpack HTML+CSS
+# Webpack HTML+SASS
 
-Este projeto visa facilitar o início de novos projetos ao configurar o Webpack com HTML e CSS.
+Este projeto visa facilitar o início de novos projetos ao configurar o Webpack com HTML e SASS.
 
 
 ### Instalação de Pacotes
