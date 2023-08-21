@@ -1,5 +1,5 @@
 {
-  "name": "webpack-html-css",
+  "name": "webpack-html-sass",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Samuel-silva/Webpack-HTML-CSS.git"
+    "url": "git+https://github.com/Samuel-silva/Webpack-HTML-SASS.git"
   },
   "keywords": [],
   "author": "https://github.com/Samuel-silva",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Samuel-silva/Webpack-HTML-CSS/issues"
+    "url": "https://github.com/Samuel-silva/Webpack-HTML-SASS/issues"
   },
-  "homepage": "https://github.com/Samuel-silva/Webpack-HTML-CSS#readme",
+  "homepage": "https://github.com/Samuel-silva/Webpack-HTML-SASS#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.15",
     "css-loader": "^6.8.1",
