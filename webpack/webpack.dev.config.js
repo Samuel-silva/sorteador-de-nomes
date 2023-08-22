@@ -7,6 +7,7 @@ module.exports = merge(common, {
   output: {
     filename: 'bundle.js'
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
