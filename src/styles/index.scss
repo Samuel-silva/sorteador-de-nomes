@@ -1,57 +1,18 @@
 body {
-    font-family: $font-family;
     min-width: 320px;
     -webkit-font-smoothing: antialiased;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-header {
-    align-items: center;
-    display: flex;
-    min-height: 100vh;
-}
-
 .webpack-logo__img {
-    display: block;
-    margin: auto;
     max-width: 180px;
 
     @media only screen and (min-width: 980px) {
         max-width: 300px;
     }
 }
-.title {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 18px;
-    justify-content: center;
-    line-height: 2;
 
-    @media only screen and (min-width: 980px) {
-        font-size: 25px;
-    }
-}
-.title__sass-image {
-    background: url("../images/sass.png") center center no-repeat;
-    background-size: contain;
-    display: inline-block;
-    height: 40px;
-    margin: 0 0 0 5px;
-    width: 40px;
-
-    @media only screen and (min-width: 980px) {
-        height: 50px;
-        width: 50px;
-    }
-}
+.title__bootstrap-icon { color: $indigo; }
 .title__html-image {
-    display: flex;
-    align-items: center;
-
     img {
         max-width: 40px;
 
@@ -59,10 +20,4 @@ header {
             max-width: 50px;
         }
     }
-}
-
-.wrapper {
-    max-width: 1200px;
-    padding: 0 12px;
-    margin: auto;
 }

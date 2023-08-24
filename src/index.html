@@ -4,19 +4,24 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Webpack HTML + SASS</title>
+	<title>Webpack HTML + Bootstrap</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<header>
-		<div class="wrapper">
-			<div class="webpack-logo">
+	<header class="d-flex">
+		<div class="container">
+			<div class="webpack-logo m-auto text-center pt-3 pt-md-5">
 				<img src="./images/webpack.png" alt="Webpack logo" class="webpack-logo__img">
 			</div>
-			<h1 class="title">Webpack com <span class="title__html-image"></span> + <span class="title__sass-image" aria-label="SASS"></span></h1>
+			<h1 class="title d-flex align-items-center justify-content-center pt-2">
+				<span class="text-body h3 mb-0">Webpack com</span>
+				<span class="title__html-image d-flex align-items-center"></span>
+				<span>+</span>
+				<span class="title__bootstrap-icon" aria-label="Bootstrap"><i class="bi bi-bootstrap ps-2 display-6"></i></span>
+			</h1>
 		</div>
 	</header>
 	<main></main>
