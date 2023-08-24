@@ -39,7 +39,6 @@ module.exports = merge(common, {
     },
     compress: true,
     client: {
-      overlay: true,
       logging: 'error'
     },
   }
