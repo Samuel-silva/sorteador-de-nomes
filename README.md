@@ -1,6 +1,6 @@
-# Webpack HTML+SASS
+# Webpack HTML+Bootstrap
 
-Este projeto visa facilitar o início de novos projetos ao configurar o Webpack com HTML e SASS.
+Este projeto visa facilitar o início de novos projetos ao configurar o Webpack com HTML e Bootstrap.
 
 
 ### Instalação de Pacotes
