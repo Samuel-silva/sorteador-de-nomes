@@ -11,43 +11,36 @@
 </head>
 
 <body>
-	<header class="d-flex">
-		<div class="container">
-			<div class="webpack-logo m-auto text-center pt-3 pt-md-5">
-				<img src="./images/webpack.png" alt="Webpack logo" class="webpack-logo__img">
+	<header>
+		<nav class="navbar bg-body-tertiary">
+			<div class="container-fluid">
+				<p class="navtitle navbar-brand">
+					Nome da Sorte
+				</p>
+				<div>
+					<input type="checkbox" class="checkbox" id="chk" />
+					<label class="label" for="chk">
+						<i class="fas fa-moon"></i>
+						<i class="fas fa-sun"></i>
+						<div class="ball"></div>
+					</label>
+				</div>
 			</div>
-			<h1 class="title d-flex align-items-center justify-content-center pt-2">
-				<span class="text-body h3 mb-0">Webpack com</span>
-				<span class="title__html-image d-flex align-items-center"></span>
-				<span>+</span>
-				<span class="title__bootstrap-icon" aria-label="Bootstrap"><i class="bi bi-bootstrap ps-2 display-6"></i></span>
-			</h1>
-		</div>
+		</nav>
 	</header>
 	<main>
 		<div class="container">
-			<!-- Button trigger modal -->
-			<div class="text-center pt-3 pt-md-5">
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					Open modal
-				</button>
-			</div>
-			<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							Some text...
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
-						</div>
-					</div>
+			<div class="card">
+				<h1 class="titulo">Sorteio de Nomes</h1>
+				<p class="quantidade">
+					<strong>Sortear</strong> <input type="number" name="quantidade" id="quantidade" value="1">
+					<strong>nome</strong>
+				</p>
+				<div class="center-container">
+					<textarea id="nomes" rows="10" cols="30" placeholder="Digite um nome por linha."></textarea>
 				</div>
+				<button id="sortear">Sortear</button>
+				<p id="resultado"></p>
 			</div>
 		</div>
 	</main>
