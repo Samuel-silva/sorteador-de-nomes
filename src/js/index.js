@@ -2,9 +2,10 @@ import '../styles/vendors.scss';
 import '../styles/styles.scss';
 
 const chk = document.getElementById('chk')
-
 chk.addEventListener('change', () => {
-  document.body.classList.toggle('dark')
+  const darkMode = document.querySelector('.selectorMode').checked
+  const html = document.querySelector('html')
+  html.dataset.bsTheme = darkMode ? 'dark' : 'light'
 })
 
 document.addEventListener('DOMContentLoaded', function () {

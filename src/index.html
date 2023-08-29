@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="light">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Webpack HTML + Bootstrap</title>
+	<title>Nome da Sorte</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -12,19 +12,18 @@
 
 <body>
 	<header>
-		<nav class="navbar bg-body-tertiary">
+		<nav class="navbar">
 			<div class="container-fluid">
-				<p class="navtitle navbar-brand">
-					Nome da Sorte
-				</p>
-				<div>
-					<input type="checkbox" class="checkbox" id="chk" />
-					<label class="label" for="chk">
-						<i class="fas fa-moon"></i>
-						<i class="fas fa-sun"></i>
-						<div class="ball"></div>
-					</label>
-				</div>
+				<h1 class="navtitle navbar-brand mb-0">Nome da Sorte</h1>
+
+				<input type="checkbox" class="checkbox selectorMode" id="chk" />
+				<label class="label" for="chk">
+					<i class="bi bi-brightness-high-fill"></i>
+					<i class="bi bi-moon-fill"></i>
+					<div class="ball"></div>
+				</label>
+			</div>
+
 			</div>
 		</nav>
 	</header>
@@ -33,13 +32,14 @@
 			<div class="card">
 				<h1 class="titulo">Sorteio de Nomes</h1>
 				<p class="quantidade">
-					<strong>Sortear</strong> <input type="number" name="quantidade" id="quantidade" value="1">
+					<strong>Sortear</strong>
+					<input type="number" name="quantidade" id="quantidade" value="1" min="1" max="10">
 					<strong>nome</strong>
 				</p>
 				<div class="center-container">
 					<textarea id="nomes" rows="10" cols="30" placeholder="Digite um nome por linha."></textarea>
 				</div>
-				<button id="sortear">Sortear</button>
+				<button id="sortear" class="btn btn-primary">Sortear</button>
 				<p id="resultado"></p>
 			</div>
 		</div>
