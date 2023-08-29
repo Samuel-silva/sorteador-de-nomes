@@ -1,9 +1,9 @@
 import '../styles/vendors.scss';
 import '../styles/styles.scss';
 
-const chk = document.getElementById('chk')
-chk.addEventListener('change', () => {
-  const darkMode = document.querySelector('.selectorMode').checked
+const selectorMode = document.getElementById('selectorMode')
+selectorMode.addEventListener('change', () => {
+  const darkMode = document.getElementById('selectorMode').checked
   const html = document.querySelector('html')
   html.dataset.bsTheme = darkMode ? 'dark' : 'light'
 })
