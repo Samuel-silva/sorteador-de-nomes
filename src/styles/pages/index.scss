@@ -47,25 +47,9 @@ body {
 }
 
 .quantidade,
-.nomes,
 .botao {
     display: flex;
     justify-content: center;
-}
-
-.center-container {
-    display: flex;
-    justify-content: center;
-}
-
-#nomes {
-    width: 400px;
-    height: 200px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    padding: 5px;
-    overflow-y: auto;
-    border-radius: 5px;
 }
 
 #sortear {

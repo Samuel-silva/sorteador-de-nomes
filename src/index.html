@@ -7,7 +7,7 @@
 	<title>Nome da Sorte</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +24,9 @@
 
 						<div class="switch col-sm-2 d-flex align-items-center justify-content-end py-2 py-sm-0">
 							<input type="checkbox" class="switch__checkbox" id="selectorMode" />
-							<label class="switch__label d-flex align-items-center justify-content-between me-1 bg-dark position-relative" for="selectorMode">
+							<label
+								class="switch__label d-flex align-items-center justify-content-between me-1 bg-dark position-relative"
+								for="selectorMode">
 								<i class="bi bi-brightness-high-fill"></i>
 								<i class="bi bi-moon-fill"></i>
 								<div class="switch__ball bg-white position-absolute"></div>
@@ -41,14 +43,23 @@
 			<div class="card mx-auto shadow p-3 p-sm-2">
 				<div class="card-body">
 					<h2 class="text-center pt-1">Sorteio de Nomes</h2>
-					<p class="quantidade">
-						<strong>Sortear</strong>
-						<input type="number" name="quantidade" id="quantidade" value="1" min="1" max="10">
-						<strong>nome</strong>
-					</p>
-					<div class="center-container">
-						<textarea id="nomes" rows="10" cols="30" placeholder="Digite um nome por linha."></textarea>
+
+					<div class="amount d-flex justify-content-center pt-2 pb-4">
+						<div class="amount__text d-flex justify-content-center align-items-center">
+							<p class="mb-0 fw-semibold pe-1">Sortear:</p>
+							<div class="input-group input-group-sm">
+								<input type="number" name="amount" class="form-control" aria-label="Quantidade de números a sortear"
+									id="amount" value="1" min="1" max="100" />
+							</div>
+							<p class="mb-0 fw-semibold ps-1">nome</p>
+						</div>
 					</div>
+
+					<div class="input-group flex-nowrap">
+						<input id="name" type="text" class="form-control" placeholder="Digite o nome" aria-label="Digite o nome" />
+						<button class="btn btn-outline-success" type="button" id="button-add">Adicionar <i class="bi bi-person-check-fill"></i></button>
+					</div>
+
 					<button id="sortear" class="btn btn-primary">Sortear</button>
 					<p id="resultado"></p>
 				</div>
