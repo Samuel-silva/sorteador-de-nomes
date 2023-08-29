@@ -9,7 +9,6 @@ body {
         cursor: pointer;
         height: 20px;
         padding: 5px;
-        position: relative;
         transform: scale(1.5);
         width: 40px;
     }
@@ -29,7 +28,7 @@ body {
         width: 18px;
     }
 
-    .bi { font-size: 0.8rem; }
+    .bi { font-size: 13px; }
     .bi-moon-fill { color: #f1c40f; }
     .bi-brightness-high-fill { color: #f39c12; }
 }
