@@ -1,4 +1,5 @@
-import '../styles/app.scss';
+import '../styles/vendors.scss';
+import '../styles/styles.scss';
 
 const chk = document.getElementById('chk')
 
