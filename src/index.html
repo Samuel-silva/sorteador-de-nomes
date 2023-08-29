@@ -12,7 +12,7 @@
 
 <body>
 	<header>
-		<nav class="navbar shadow-sm p-3 mb-5 bg-body-tertiary">
+		<nav class="navbar shadow-sm p-3 bg-body-tertiary">
 			<div class="container-fluid">
 				<div class="w-100">
 					<div class="row">
@@ -35,20 +35,23 @@
 			</div>
 		</nav>
 	</header>
-	<main>
+
+	<main class="pt-5">
 		<div class="container">
-			<div class="card">
-				<h1 class="titulo">Sorteio de Nomes</h1>
-				<p class="quantidade">
-					<strong>Sortear</strong>
-					<input type="number" name="quantidade" id="quantidade" value="1" min="1" max="10">
-					<strong>nome</strong>
-				</p>
-				<div class="center-container">
-					<textarea id="nomes" rows="10" cols="30" placeholder="Digite um nome por linha."></textarea>
+			<div class="card mx-auto shadow p-3 p-sm-2">
+				<div class="card-body">
+					<h2 class="text-center pt-1">Sorteio de Nomes</h2>
+					<p class="quantidade">
+						<strong>Sortear</strong>
+						<input type="number" name="quantidade" id="quantidade" value="1" min="1" max="10">
+						<strong>nome</strong>
+					</p>
+					<div class="center-container">
+						<textarea id="nomes" rows="10" cols="30" placeholder="Digite um nome por linha."></textarea>
+					</div>
+					<button id="sortear" class="btn btn-primary">Sortear</button>
+					<p id="resultado"></p>
 				</div>
-				<button id="sortear" class="btn btn-primary">Sortear</button>
-				<p id="resultado"></p>
 			</div>
 		</div>
 	</main>

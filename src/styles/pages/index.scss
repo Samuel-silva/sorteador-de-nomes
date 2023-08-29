@@ -36,32 +36,16 @@ body {
 .switch__checkbox:checked+.switch__label .switch__ball { transform: translateX(19px); }
 
 
-@media screen and (max-width: 600px) {
-    .card {
-        max-width: 100%;
-    }
-}
-
 .card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    width: 400px;
-    margin: 0 auto;
-    margin-top: 50px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.titulo {
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 5px;
+    @media screen and (min-width: 576px) {
+        width: 500px;
+    }
 }
 
 .quantidade {
     margin-top: 50px;
 }
 
-.titulo,
 .quantidade,
 .nomes,
 .botao {
