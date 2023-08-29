@@ -15,6 +15,7 @@ function addName(name) {
 
   list.classList.remove('d-none');
   names.push(name);
+  enableBtn(true);
   printNames(name);
 }
 
@@ -26,13 +27,21 @@ function printNames(name) {
   ulList.appendChild(li);
 }
 
+function enableBtn(enable) {
+  const btnPrizeDraw = document.getElementById('prizeDraw');
+  if (enable) {
+    btnPrizeDraw.classList.remove('disabled')
+  } else {
+    btnPrizeDraw.classList.add('disabled')
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const buttonAddName = document.getElementById('button-add');
   const inputName = document.getElementById('name');
 
-  inputName.addEventListener("keypress", function(event) {
-    this.value;
-    if (event.key === "Enter") {
+  inputName.addEventListener("keypress", function (event) {
+    if (event.key === "Enter" && this.value.length > 0) {
       event.preventDefault();
       addName(this.value.trim())
       this.value = '';
@@ -46,28 +55,44 @@ document.addEventListener('DOMContentLoaded', function () {
     inputName.focus();
   })
 
-  // const textarea = document.getElementById('nomes');
-  // const sortearButton = document.getElementById('sortear');
-  // const resultado = document.getElementById('resultado');
+  const btnPrizeDraw = document.getElementById('prizeDraw');
+  const result = document.querySelector('.result__box');
+  const resultText = document.querySelector('.result__text');
+  const resultIcon = document.querySelector('.result__icon');
 
-  // sortearButton.addEventListener('click', function () {
-  //   const nomes = textarea.value.trim().split('\n');
-  //   const amount = parseInt(document.getElementById('amount').value);
+  btnPrizeDraw.addEventListener('click', function () {
+    const amount = parseInt(document.getElementById('amount').value);
 
-  //   if (nomes.length === 0) {
-  //     resultado.textContent = 'Digite pelo menos um nome.';
-  //   } else if (amount <= 0 || amount > nomes.length || amount === '') {
-  //     resultado.textContent = 'Digite uma quantidade válida.';
-  //   } else {
-  //     resultado.textContent = '';
+    if (names.length === 0) {
+      printError('Digite pelo menos um nome.');
+    } else if (amount <= 0 || amount > names.length || amount === '') {
+      printError('Digite uma quantidade válida.');
+    } else {
+      result.classList.remove('alert-danger', 'p-0');
+      result.classList.add('alert-success');
+      resultIcon.classList.remove('d-none');
+      resultText.textContent = '';
 
-  //     for (let i = 0; i < amount; i++) {
-  //       if (nomes.length === 0) break;
-  //       const index = Math.floor(Math.random() * nomes.length);
-  //       resultado.textContent += nomes[index];
-  //       if (i < amount - 1) resultado.textContent += ', ';
-  //       nomes.splice(index, 1);
-  //     }
-  //   }
-  // });
-});
+      if (amount === 1) {
+        const index = Math.floor(Math.random() * names.length);
+        resultText.textContent += names[index];
+      } else {
+        for (let i = 0; i < amount; i++) {
+          const index = Math.floor(Math.random() * names.length);
+          if (i === 0) {
+            resultText.textContent += names[index];
+          } else {
+            resultText.textContent += `, ${names[index]}`;
+          }
+        }
+      }
+    }
+  })
+
+  function printError(text) {
+    result.classList.remove('alert-success', 'p-0');
+    result.classList.add('alert-danger');
+    resultIcon.classList.add('d-none');
+    resultText.textContent = text;
+  }
+})

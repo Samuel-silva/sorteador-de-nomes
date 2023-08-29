@@ -42,7 +42,7 @@
 		<div class="container">
 			<div class="card mx-auto shadow p-3 p-sm-2">
 				<div class="card-body">
-					<h2 class="text-center pt-1">Sorteio de Nomes</h2>
+					<h2 class="text-center">Sorteio de Nomes</h2>
 
 					<div class="amount d-flex justify-content-center pt-2 pb-4">
 						<div class="amount__text d-flex justify-content-center align-items-center">
@@ -57,7 +57,9 @@
 
 					<div class="input-group flex-nowrap">
 						<input id="name" type="text" class="form-control" placeholder="Digite o nome" aria-label="Digite o nome" />
-						<button class="btn btn-outline-success" type="button" id="button-add">Adicionar <i class="bi bi-person-check-fill"></i></button>
+						<button class="btn btn-outline-success" type="button" id="button-add">
+							<span class="d-none d-sm-inline">Adicionar</span>
+							<i class="bi bi-person-check-fill"></i></button>
 					</div>
 
 					<div class="names-list d-none">
@@ -65,8 +67,14 @@
 						<ul class="names-list__list"></ul>
 					</div>
 
-					<button id="sortear" class="btn btn-primary disabled">Sortear</button>
-					<p id="resultado"></p>
+					<div id="result">
+						<div class="result__box alert p-0 mb-0" role="alert">
+							<i class="bi bi-trophy-fill d-none result__icon pe-2"></i>
+							<span class="result__text"></span>
+						</div>
+					</div>
+
+					<button id="prizeDraw" class="btn btn-primary w-100 mt-4 disabled">Sortear</button>
 				</div>
 			</div>
 		</div>
