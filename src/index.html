@@ -12,18 +12,26 @@
 
 <body>
 	<header>
-		<nav class="navbar">
+		<nav class="navbar shadow-sm p-3 mb-5 bg-body-tertiary">
 			<div class="container-fluid">
-				<h1 class="navtitle navbar-brand mb-0">Nome da Sorte</h1>
+				<div class="w-100">
+					<div class="row">
+						<div class="col-sm-10">
+							<h1 class="navbar-brand mb-0">
+								<span class="display-6">Nome da Sorte</span>
+							</h1>
+						</div>
 
-				<input type="checkbox" class="checkbox selectorMode" id="chk" />
-				<label class="label" for="chk">
-					<i class="bi bi-brightness-high-fill"></i>
-					<i class="bi bi-moon-fill"></i>
-					<div class="ball"></div>
-				</label>
-			</div>
-
+						<div class="col-sm-2 d-flex align-items-center justify-content-end py-2 py-sm-0">
+							<input type="checkbox" class="checkbox" id="chk" />
+							<label class="label" for="chk">
+								<i class="bi bi-brightness-high-fill"></i>
+								<i class="bi bi-moon-fill"></i>
+								<div class="ball"></div>
+							</label>
+						</div>
+					</div>
+				</div>
 			</div>
 		</nav>
 	</header>
