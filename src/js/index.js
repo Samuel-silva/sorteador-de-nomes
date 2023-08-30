@@ -16,13 +16,14 @@ function addName(name) {
   list.classList.remove('d-none');
   names.push(name);
   enableBtn(true);
-  printNames(name);
+  printNames(name, names.length - 1);
 }
 
-function printNames(name) {
+function printNames(name, index) {
   const ulList = document.querySelector('.names-list__list');
   const li = document.createElement("li");
 
+  li.dataset.index = index;
   li.appendChild(document.createTextNode(name));
   ulList.appendChild(li);
 }
