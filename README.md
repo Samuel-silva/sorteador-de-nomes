@@ -1,39 +1,18 @@
-# Webpack HTML+Bootstrap
+# Sorteador de Nomes
 
-Este projeto visa facilitar o início de novos projetos ao configurar o Webpack com HTML e Bootstrap.
+O objetivo deste projeto é criar uma aplicação que facilite o sorteio de nomes.
 
+## Navegação
 
-### Instalação de Pacotes
+A interface é simples e intuitiva:
 
-Após baixar o projeto, é necessário instalar os pacotes. No diretório raiz do projeto, execute o seguinte comando:
+- Há um campo para inserir nomes, que podem ser adicionados clicando no botão "Adicionar" ou pressionando a tecla Enter.
+- Você pode definir a quantidade de nomes a serem sorteados utilizando um campo dedicado.
+- Ao pressionar o botão "Sortear", os nomes sorteados serão exibidos na tela.
 
-```javascript
-npm install
-```
+## Personalização do Tema
+No cabeçalho da aplicação, você pode alternar entre os modos de tema claro e escuro para melhor atender às suas preferências.
 
+## Visualize o Site
 
-### Ambiente de Desenvolvimento
-
-Após concluir a instalação dos pacotes, execute:
-
-```javascript
-npm run dev
-```
-
-Seu ambiente de desenvolvimento estará pronto. Abra o seguinte link no seu navegador: http://localhost:9000/ e comece a desenvolver seu projeto. 🚀
-
-### Ambiente de Produção
-
-Para gerar os arquivos de produção, basta executar:
-
-```javascript
-npm run build
-```
-Todos o contéudo do site será gerado na pasta `dist/`, com os arquivos minificados e imagens comprimidas, prontos para serem enviados ao servidor. 😀
-
-### Requisitos
-
-Para executar este projeto, você precisará ter instalados:
-
-- Node.js
-- npm
+Para visualizar o site em ação, [clique aqui](https://samuel-silva.github.io/sorteador-de-nomes/).
