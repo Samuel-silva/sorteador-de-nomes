@@ -1,9 +1,9 @@
 import '../styles/vendors.scss';
 import '../styles/styles.scss';
 
+const names = [];
 const selectorMode = document.getElementById('selectorMode');
 const ulList = document.querySelector('.names-list__list');
-const names = [];
 
 selectorMode.addEventListener('change', () => {
   const darkMode = document.getElementById('selectorMode').checked;
@@ -16,7 +16,7 @@ function addName(name) {
 
   list.classList.remove('d-none');
   names.push(name);
-  enableBtn(true);
+  enableBtn(amountValue() < names.length);
   printNames(name, names.length - 1);
 }
 
@@ -52,19 +52,27 @@ function deleteName() {
   names.splice(this.dataset.index, 1);
   ulList.innerHTML = '';
 
-  names.map((item, index) => {
-    printNames(item, index);
-  })
+  enableBtn(amountValue() < names.length);
+
+  if (names.length > 0) {
+    names.map((item, index) => {
+      printNames(item, index);
+    })
+  }
+}
+
+function amountValue() {
+  return parseInt(document.getElementById('amount').value);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  const amount = document.getElementById('amount');
   const buttonAddName = document.getElementById('button-add');
-  const inputName = document.getElementById('name');
   const btnPrizeDraw = document.getElementById('prizeDraw');
+  const inputName = document.getElementById('name');
   const result = document.querySelector('.result__box');
-  const resultText = document.querySelector('.result__text');
   const resultIcon = document.querySelector('.result__icon');
-  const namesList = document.querySelector('.names-list');
+  const resultText = document.querySelector('.result__text');
 
   inputName.addEventListener("keypress", function (event) {
     if (event.key === "Enter" && this.value.length > 0) {
@@ -81,12 +89,14 @@ document.addEventListener('DOMContentLoaded', function () {
     inputName.focus();
   })
 
-  btnPrizeDraw.addEventListener('click', function () {
-    const amount = parseInt(document.getElementById('amount').value);
+  amount.addEventListener('change', function () {
+    enableBtn(amountValue() < names.length);
+  })
 
+  btnPrizeDraw.addEventListener('click', function () {
     if (names.length === 0) {
       printError('Digite pelo menos um nome.');
-    } else if (amount <= 0 || amount > names.length || amount === '') {
+    } else if (amountValue() <= 0 || amountValue() > names.length || amountValue() === '') {
       printError('Digite uma quantidade válida.');
     } else {
       result.classList.remove('alert-danger', 'p-0');
@@ -94,11 +104,11 @@ document.addEventListener('DOMContentLoaded', function () {
       resultIcon.classList.remove('d-none');
       resultText.textContent = '';
 
-      if (amount === 1) {
+      if (amountValue() === 1) {
         const index = Math.floor(Math.random() * names.length);
         resultText.textContent += names[index];
       } else {
-        for (let i = 0; i < amount; i++) {
+        for (let i = 0; i < amountValue(); i++) {
           const index = Math.floor(Math.random() * names.length);
           if (i === 0) {
             resultText.textContent += names[index];
