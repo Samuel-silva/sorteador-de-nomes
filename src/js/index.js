@@ -2,6 +2,7 @@ import '../styles/vendors.scss';
 import '../styles/styles.scss';
 
 const selectorMode = document.getElementById('selectorMode');
+const ulList = document.querySelector('.names-list__list');
 const names = [];
 
 selectorMode.addEventListener('change', () => {
@@ -20,7 +21,6 @@ function addName(name) {
 }
 
 function printNames(name, index) {
-  const ulList = document.querySelector('.names-list__list');
   const li = document.createElement("li");
   const content = document.createElement("div");
   const deleteItem = document.createElement("a");
@@ -29,6 +29,7 @@ function printNames(name, index) {
   deleteItem.title = 'Excluir';
   deleteItem.classList.add('names-list__link', 'text-danger', 'ps-3');
   deleteItem.dataset.index = index;
+  deleteItem.addEventListener("click", deleteName);
 
   content.classList.add('names-list__item', 'd-flex', 'align-items-center', 'justify-content-between', 'py-1');
   content.appendChild(document.createTextNode(name));
@@ -47,9 +48,23 @@ function enableBtn(enable) {
   }
 }
 
+function deleteName() {
+  names.splice(this.dataset.index, 1);
+  ulList.innerHTML = '';
+
+  names.map((item, index) => {
+    printNames(item, index);
+  })
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const buttonAddName = document.getElementById('button-add');
   const inputName = document.getElementById('name');
+  const btnPrizeDraw = document.getElementById('prizeDraw');
+  const result = document.querySelector('.result__box');
+  const resultText = document.querySelector('.result__text');
+  const resultIcon = document.querySelector('.result__icon');
+  const namesList = document.querySelector('.names-list');
 
   inputName.addEventListener("keypress", function (event) {
     if (event.key === "Enter" && this.value.length > 0) {
@@ -65,11 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
     inputName.value = '';
     inputName.focus();
   })
-
-  const btnPrizeDraw = document.getElementById('prizeDraw');
-  const result = document.querySelector('.result__box');
-  const resultText = document.querySelector('.result__text');
-  const resultIcon = document.querySelector('.result__icon');
 
   btnPrizeDraw.addEventListener('click', function () {
     const amount = parseInt(document.getElementById('amount').value);
