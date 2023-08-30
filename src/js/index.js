@@ -25,13 +25,13 @@ function printNames(name, index) {
   const content = document.createElement("div");
   const deleteItem = document.createElement("a");
 
-  deleteItem.innerHTML = '<i class="bi bi-person-x"></i>';
+  deleteItem.innerHTML = '<i class="bi bi-person-x p-1"></i>';
   deleteItem.title = 'Excluir';
-  deleteItem.classList.add('names-list__link', 'text-danger', 'ps-3');
+  deleteItem.classList.add('names-list__link', 'text-danger', 'ps-2');
   deleteItem.dataset.index = index;
   deleteItem.addEventListener("click", deleteName);
 
-  content.classList.add('names-list__item', 'd-flex', 'align-items-center', 'justify-content-between', 'py-1');
+  content.classList.add('names-list__item', 'd-flex', 'align-items-center', 'justify-content-between', 'py-2');
   content.appendChild(document.createTextNode(name));
   content.appendChild(deleteItem);
 
