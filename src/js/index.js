@@ -1,5 +1,6 @@
 import '../styles/vendors.scss';
 import '../styles/styles.scss';
+import { functions } from 'lodash';
 
 const names = [];
 const selectorMode = document.getElementById('selectorMode');
@@ -65,6 +66,16 @@ function amountValue() {
   return parseInt(document.getElementById('amount').value);
 }
 
+function randomNumbers(max) {
+  return Math.floor(Math.random() * max);
+}
+
+function uniqueNumber(number, history) {
+  if (!history.includes(number)) return number;
+  const newNumber = randomNumbers(names.length);
+  return history.includes(newNumber) ? uniqueNumber(newNumber, history) : newNumber;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const amount = document.getElementById('amount');
   const buttonAddName = document.getElementById('button-add');
@@ -99,22 +110,23 @@ document.addEventListener('DOMContentLoaded', function () {
     } else if (amountValue() <= 0 || amountValue() > names.length || amountValue() === '') {
       printError('Digite uma quantidade válida.');
     } else {
+      const indexHistory = [];
+      const index = randomNumbers(names.length);
+
       result.classList.remove('alert-danger', 'p-0');
       result.classList.add('alert-success');
       resultIcon.classList.remove('d-none');
       resultText.textContent = '';
 
       if (amountValue() === 1) {
-        const index = Math.floor(Math.random() * names.length);
-        resultText.textContent += names[index];
+        indexHistory.push(index);
+        resultText.textContent += names[randomNumbers(names.length)];
       } else {
         for (let i = 0; i < amountValue(); i++) {
-          const index = Math.floor(Math.random() * names.length);
-          if (i === 0) {
-            resultText.textContent += names[index];
-          } else {
-            resultText.textContent += `, ${names[index]}`;
-          }
+          const newIndex = uniqueNumber(index, indexHistory)
+          indexHistory.push(newIndex);
+
+          resultText.textContent += i === 0 ? names[newIndex] : `, ${names[newIndex]}`;
         }
       }
     }
