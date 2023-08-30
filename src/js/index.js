@@ -22,9 +22,19 @@ function addName(name) {
 function printNames(name, index) {
   const ulList = document.querySelector('.names-list__list');
   const li = document.createElement("li");
+  const content = document.createElement("div");
+  const deleteItem = document.createElement("a");
 
-  li.dataset.index = index;
-  li.appendChild(document.createTextNode(name));
+  deleteItem.innerHTML = '<i class="bi bi-person-x"></i>';
+  deleteItem.title = 'Excluir';
+  deleteItem.classList.add('names-list__link', 'text-danger', 'ps-3');
+  deleteItem.dataset.index = index;
+
+  content.classList.add('names-list__item', 'd-flex', 'align-items-center', 'justify-content-between', 'py-1');
+  content.appendChild(document.createTextNode(name));
+  content.appendChild(deleteItem);
+
+  li.appendChild(content);
   ulList.appendChild(li);
 }
 
