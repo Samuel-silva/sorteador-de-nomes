@@ -16,6 +16,7 @@ function addName(name) {
 
   list.classList.remove('d-none');
   names.push(name);
+  printResult('clear');
   enableBtn(amountValue() <= names.length);
   printNames(name, names.length - 1);
 }
