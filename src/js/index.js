@@ -1,6 +1,5 @@
 import '../styles/vendors.scss';
 import '../styles/styles.scss';
-import { functions } from 'lodash';
 
 const names = [];
 const selectorMode = document.getElementById('selectorMode');
@@ -84,20 +83,26 @@ document.addEventListener('DOMContentLoaded', function () {
   const result = document.querySelector('.result__box');
   const resultIcon = document.querySelector('.result__icon');
   const resultText = document.querySelector('.result__text');
+  const validation = document.querySelector('.invalid-feedback');
 
-  inputName.addEventListener("keypress", function (event) {
+  inputName.addEventListener("keyup", function (event) {
+    const hasName = validationName(this.value.trim(), true);
+
+    if (hasName) {
+      validation.classList.add('d-block');
+    } else {
+      validation.classList.remove('d-block');
+    }
+
     if (event.key === "Enter" && this.value.length > 0) {
       event.preventDefault();
-      addName(this.value.trim())
-      this.value = '';
+      validationName(this.value.trim());
     }
   })
 
   buttonAddName.addEventListener('click', function (event) {
     event.preventDefault();
-    addName(inputName.value.trim())
-    inputName.value = '';
-    inputName.focus();
+    validationName(inputName.value.trim());
   })
 
   amount.addEventListener('change', function () {
@@ -137,5 +142,21 @@ document.addEventListener('DOMContentLoaded', function () {
     result.classList.add('alert-danger');
     resultIcon.classList.add('d-none');
     resultText.textContent = text;
+  }
+
+  function validationName(newName, onlyCheck = false) {
+    const includesValue = names.some(name => {
+      return name.toLowerCase() === newName.toLowerCase();
+    });
+
+    if (onlyCheck) return includesValue;
+
+    if (includesValue) {
+      validation.classList.add('d-block')
+    } else {
+      addName(newName);
+      inputName.value = '';
+    }
+    inputName.focus();
   }
 })

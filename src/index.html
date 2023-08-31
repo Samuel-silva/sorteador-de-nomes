@@ -56,11 +56,13 @@
 					</div>
 
 					<div class="input-group flex-nowrap">
-						<input id="name" type="text" class="form-control" placeholder="Digite o nome" aria-label="Digite o nome" />
+						<input id="name" type="text" class="form-control" placeholder="Digite o nome" aria-label="Digite o nome" autocomplete="off" />
 						<button class="btn btn-outline-success" type="button" id="button-add">
 							<span class="d-none d-sm-inline">Adicionar</span>
-							<i class="bi bi-person-check-fill"></i></button>
+							<i class="bi bi-person-check-fill"></i>
+						</button>
 					</div>
+					<div class="invalid-feedback">Nome já adicionado.</div>
 
 					<div class="names-list d-none">
 						<p class="fw-semibold pt-3 mb-0">Nomes a sortear:</p>
