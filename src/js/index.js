@@ -51,7 +51,7 @@ function enableBtn(enable) {
 function deleteName() {
   names.splice(this.dataset.index, 1);
   ulList.innerHTML = '';
-
+  printResult('clear');
   enableBtn(amountValue() < names.length);
 
   if (names.length > 0) {
@@ -75,14 +75,33 @@ function uniqueNumber(number, history) {
   return history.includes(newNumber) ? uniqueNumber(newNumber, history) : newNumber;
 }
 
+function printResult(type, text = '') {
+  const result = document.querySelector('.result__box');
+  const resultIcon = document.querySelector('.result__icon');
+  const resultText = document.querySelector('.result__text');
+
+  resultText.textContent = text;
+
+  if (type === 'success') {
+    result.classList.remove('alert-danger', 'p-0');
+    result.classList.add('alert-success');
+    resultIcon.classList.remove('d-none');
+  } else if (type === 'error') {
+    result.classList.remove('alert-success', 'p-0');
+    result.classList.add('alert-danger');
+    resultIcon.classList.add('d-none');
+  } else {
+    result.classList.add('p-0');
+    result.classList.remove('alert-success', 'alert-danger');
+    resultIcon.classList.add('d-none');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const amount = document.getElementById('amount');
   const buttonAddName = document.getElementById('button-add');
   const btnPrizeDraw = document.getElementById('prizeDraw');
   const inputName = document.getElementById('name');
-  const result = document.querySelector('.result__box');
-  const resultIcon = document.querySelector('.result__icon');
-  const resultText = document.querySelector('.result__text');
   const validation = document.querySelector('.invalid-feedback');
 
   inputName.addEventListener("keyup", function (event) {
@@ -111,38 +130,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
   btnPrizeDraw.addEventListener('click', function () {
     if (names.length === 0) {
-      printError('Digite pelo menos um nome.');
+      printResult('error', 'Digite pelo menos um nome.');
     } else if (amountValue() <= 0 || amountValue() > names.length || amountValue() === '') {
-      printError('Digite uma quantidade válida.');
+      printResult('error', 'Digite uma quantidade válida.');
     } else {
       const indexHistory = [];
       const index = randomNumbers(names.length);
-
-      result.classList.remove('alert-danger', 'p-0');
-      result.classList.add('alert-success');
-      resultIcon.classList.remove('d-none');
-      resultText.textContent = '';
+      let text = '';
 
       if (amountValue() === 1) {
         indexHistory.push(index);
-        resultText.textContent += names[randomNumbers(names.length)];
+        text += names[randomNumbers(names.length)];
       } else {
         for (let i = 0; i < amountValue(); i++) {
           const newIndex = uniqueNumber(index, indexHistory)
           indexHistory.push(newIndex);
-
-          resultText.textContent += i === 0 ? names[newIndex] : `, ${names[newIndex]}`;
+          text += i === 0 ? names[newIndex] : `, ${names[newIndex]}`;
         }
       }
+      printResult('success', text);
     }
   })
-
-  function printError(text) {
-    result.classList.remove('alert-success', 'p-0');
-    result.classList.add('alert-danger');
-    resultIcon.classList.add('d-none');
-    resultText.textContent = text;
-  }
 
   function validationName(newName, onlyCheck = false) {
     const includesValue = names.some(name => {
