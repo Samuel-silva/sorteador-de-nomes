@@ -16,7 +16,7 @@ function addName(name) {
 
   list.classList.remove('d-none');
   names.push(name);
-  enableBtn(amountValue() < names.length);
+  enableBtn(amountValue() <= names.length);
   printNames(name, names.length - 1);
 }
 
@@ -52,7 +52,7 @@ function deleteName() {
   names.splice(this.dataset.index, 1);
   ulList.innerHTML = '';
   printResult('clear');
-  enableBtn(amountValue() < names.length);
+  enableBtn(amountValue() <= names.length);
 
   if (names.length > 0) {
     names.map((item, index) => {
@@ -125,14 +125,19 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   amount.addEventListener('change', function () {
-    enableBtn(amountValue() < names.length);
+    enableBtn(amountValue() <= names.length);
+  })
+  amount.addEventListener('keyup', function () {
+    enableBtn(amountValue() <= names.length);
   })
 
   btnPrizeDraw.addEventListener('click', function () {
     if (names.length === 0) {
       printResult('error', 'Digite pelo menos um nome.');
-    } else if (amountValue() <= 0 || amountValue() > names.length || amountValue() === '') {
-      printResult('error', 'Digite uma quantidade válida.');
+    } else if (amountValue() <= 0 || amountValue() === '') {
+      printResult('error', 'Digite uma quantidade de nomes para sortear válida.');
+    } else if (amountValue() > names.length) {
+      printResult('error', 'A quantidade de nomes para sortear é maior do que a quantidade de nomes inseridos.');
     } else {
       const indexHistory = [];
       const index = randomNumbers(names.length);
