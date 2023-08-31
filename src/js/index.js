@@ -80,7 +80,7 @@ function printResult(type, text = '') {
   const resultIcon = document.querySelector('.result__icon');
   const resultText = document.querySelector('.result__text');
 
-  resultText.textContent = text;
+  resultText.innerHTML = text;
 
   if (type === 'success') {
     result.classList.remove('alert-danger', 'p-0');
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < amountValue(); i++) {
           const newIndex = uniqueNumber(index, indexHistory)
           indexHistory.push(newIndex);
-          text += i === 0 ? names[newIndex] : `, ${names[newIndex]}`;
+          text += i === 0 ? `${i + 1} - ${names[newIndex]}` : `<br /> ${i + 1} - ${names[newIndex]}`;
         }
       }
       printResult('success', text);
