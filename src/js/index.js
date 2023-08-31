@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const amount = document.getElementById('amount');
   const buttonAddName = document.getElementById('button-add');
   const btnPrizeDraw = document.getElementById('prizeDraw');
+  const currentYear = document.querySelector('.current-year');
   const inputName = document.getElementById('name');
   const validation = document.querySelector('.invalid-feedback');
 
@@ -156,6 +157,8 @@ document.addEventListener('DOMContentLoaded', function () {
       printResult('success', text);
     }
   })
+
+  currentYear.innerHTML = new Date().getFullYear();
 
   function validationName(newName, onlyCheck = false) {
     const includesValue = names.some(name => {

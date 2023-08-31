@@ -1,4 +1,5 @@
 body {
+    min-height: 100vh;
     min-width: 320px;
     -webkit-font-smoothing: antialiased;
 }
@@ -28,12 +29,22 @@ body {
         width: 18px;
     }
 
-    .bi { font-size: 13px; }
-    .bi-moon-fill { color: #DDD; }
-    .bi-brightness-high-fill { color: #f39c12; }
+    .bi {
+        font-size: 13px;
+    }
+
+    .bi-moon-fill {
+        color: #DDD;
+    }
+
+    .bi-brightness-high-fill {
+        color: #f39c12;
+    }
 }
 
-.switch__checkbox:checked+.switch__label .switch__ball { transform: translateX(19px); }
+.switch__checkbox:checked+.switch__label .switch__ball {
+    transform: translateX(19px);
+}
 
 
 .card {
@@ -47,4 +58,10 @@ body {
         cursor: pointer;
         font-size: 1.2em;
     }
+}
+
+.footer {
+    bottom: 0;
+    left: 0;
+    position: absolute;
 }
